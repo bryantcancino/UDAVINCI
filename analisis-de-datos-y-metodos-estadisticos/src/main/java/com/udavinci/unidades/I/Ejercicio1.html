@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medidas de Tendencia Central</title>
+</head>
+<body>
+    <h1>Medidas de Tendencia Central</h1>
+        <button onclick="calcularMedia()">Calcular Media</button>
+        <div id="resultMedia"></div>
+        </br>
+        <button onclick="calcularMediana()">Calcular Mediana</button>
+        <div id="resultMediana"></div>
+        </br>
+        <button onclick="calcularModa()">Calcular Moda</button>
+        <div id="resultModa"></div>
+        </br>
+    <script>
+        let datos = [1, 1, 2, 3, 5, 8, 13, 12, 4, 5, 2, 3, 4, 6, 7, 8, 9, 2, 1, 5, 7, 8, 9, 10, 13, 12, 13, 5, 7, 8, 4, 11, 13, 12, 4, 5, 2, 3, 2, 3, 5, 8, 13, 12, 4, 5, 2, 3, 4, 6, 7, 8, 9, 2, 1, 5, 3, 5, 8, 13, 12, 4, 5, 2, 3, 4, 6, 7, 3, 5, 8, 13, 12, 4, 5, 2, 3, 4, 6, 7,9, 10, 13, 12, 13, 5, 7, 8, 4, 11, 13, 12, 4, 5, 2, 3, 2, 3, 5, 8, 13, 12, 4, 5, 2, 3, 4, 6, 7, 8, 9, 2, 1, 5, 3];
+
+        // Función para calcular la media
+        function calcularMedia() {
+            const suma = datos.reduce((acc, num) => acc + num, 0);
+            let media = suma / datos.length;
+            const resultContainer = document.getElementById('resultMedia');
+            resultContainer.innerHTML = `
+                <p><strong>Media: </strong>${media}</p>
+            `;
+        }
+
+        // Función para calcular la mediana
+        function calcularMediana() {
+            const sortedDatos = datos.slice().sort((a, b) => a - b);
+            const mid = Math.floor(sortedDatos.length / 2);
+
+            let mediana;
+
+            if (sortedDatos.length % 2 === 0) {
+                mediana = (sortedDatos[mid - 1] + sortedDatos[mid]) / 2;
+            } else {
+                mediana = sortedDatos[mid];
+            }
+            const resultContainer = document.getElementById('resultMediana');
+            resultContainer.innerHTML = `
+                <p><strong>Mediana: </strong>${mediana}</p>
+            `;
+        }
+
+        // Función para calcular la moda
+        function calcularModa() {
+            let count = {};
+            datos.forEach(num => {
+                count[num] = (count[num] || 0) + 1;
+            });
+
+            let moda = [];
+            let maxCount = 0;
+
+            for (const num in count) {
+                if (count[num] > maxCount) {
+                    moda = [num];
+                    maxCount = count[num];
+                } else if (count[num] === maxCount) {
+                    moda.push(num);
+                }
+            }
+
+            const resultContainer = document.getElementById('resultModa');
+            resultContainer.innerHTML = `
+                <p><strong>Moda: </strong>${moda}</p>
+            `;
+        }
+    </script>
+</body>
+</html>

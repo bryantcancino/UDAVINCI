@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medidas de Dispersión</title>
+</head>
+<body>
+    <h1>Medidas de Dispersión</h1>
+    <button onclick="calcularVarianza()">Calcular Varianza</button>
+    <div id="resultVarianza"></div>
+    </br>
+    <button onclick="calcularDesviacionEstandar()">Calcular Desviacion Estandar</button>
+    <div id="resultDesviacionEstandar"></div>
+    </br>
+    <script>
+        let datos = [1, 1, 2, 3, 5, 8, 13, 12, 4, 5, 2, 3, 4, 6, 7, 8, 9, 2, 1, 5, 7, 8, 9, 10, 13, 12, 13, 5, 7, 8, 4, 11, 13, 12, 4, 5, 2, 3, 2, 3, 5, 8, 13, 12, 4, 5, 2, 3, 4, 6, 7, 8, 9, 2, 1, 5, 3, 5, 8, 13, 12, 4, 5, 2, 3, 4, 6, 7, 3, 5, 8, 13, 12, 4, 5, 2, 3, 4, 6, 7,9, 10, 13, 12, 13, 5, 7, 8, 4, 11, 13, 12, 4, 5, 2, 3, 2, 3, 5, 8, 13, 12, 4, 5, 2, 3, 4, 6, 7, 8, 9, 2, 1, 5, 3];
+        let varianzaa;
+
+        // Función para calcular la varianza
+        function calcularVarianza() {
+
+            const suma = datos.reduce((acc, num) => acc + num, 0);
+            let media = suma / datos.length;
+
+            const sumSquaredDiff = datos.reduce((acc, num) => acc + Math.pow(num - media, 2), 0);
+            varianzaa = sumSquaredDiff / datos.length;
+            const resultContainer = document.getElementById('resultVarianza');
+            resultContainer.innerHTML = `
+                <p><strong>Varianza: </strong>${varianzaa}</p>
+            `;
+
+        }
+
+        // Función para calcular la desviación estándar
+        function calcularDesviacionEstandar() {
+            let desviacionEstandar = Math.sqrt(varianzaa);
+            const resultContainer = document.getElementById('resultDesviacionEstandar');
+            resultContainer.innerHTML = `
+                <p><strong>Varianza: </strong>${desviacionEstandar}</p>
+            `;
+
+        }
+    </script>
+</body>
+</html>
