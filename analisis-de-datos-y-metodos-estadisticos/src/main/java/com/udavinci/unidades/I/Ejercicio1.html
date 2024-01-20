@@ -24,9 +24,7 @@
             const suma = datos.reduce((acc, num) => acc + num, 0);
             let media = suma / datos.length;
             const resultContainer = document.getElementById('resultMedia');
-            resultContainer.innerHTML = `
-                <p><strong>Media: </strong>${media}</p>
-            `;
+            resultContainer.innerHTML = `<p><strong>Media: </strong>${media}</p>`;
         }
 
         // Función para calcular la mediana
@@ -42,9 +40,7 @@
                 mediana = sortedDatos[mid];
             }
             const resultContainer = document.getElementById('resultMediana');
-            resultContainer.innerHTML = `
-                <p><strong>Mediana: </strong>${mediana}</p>
-            `;
+            resultContainer.innerHTML = `<p><strong>Mediana: </strong>${mediana}</p>`;
         }
 
         // Función para calcular la moda
@@ -67,9 +63,7 @@
             }
 
             const resultContainer = document.getElementById('resultModa');
-            resultContainer.innerHTML = `
-                <p><strong>Moda: </strong>${moda}</p>
-            `;
+            resultContainer.innerHTML = `<p><strong>Moda: </strong>${moda}</p>`;
         }
     </script>
 </body>

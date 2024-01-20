@@ -26,9 +26,7 @@
             const sumSquaredDiff = datos.reduce((acc, num) => acc + Math.pow(num - media, 2), 0);
             varianzaa = sumSquaredDiff / datos.length;
             const resultContainer = document.getElementById('resultVarianza');
-            resultContainer.innerHTML = `
-                <p><strong>Varianza: </strong>${varianzaa}</p>
-            `;
+            resultContainer.innerHTML = `<p><strong>Varianza: </strong>${varianzaa}</p>`;
 
         }
 
@@ -36,9 +34,7 @@
         function calcularDesviacionEstandar() {
             let desviacionEstandar = Math.sqrt(varianzaa);
             const resultContainer = document.getElementById('resultDesviacionEstandar');
-            resultContainer.innerHTML = `
-                <p><strong>Varianza: </strong>${desviacionEstandar}</p>
-            `;
+            resultContainer.innerHTML = `<p><strong>Varianza: </strong>${desviacionEstandar}</p>`;
 
         }
     </script>
